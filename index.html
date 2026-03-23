@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Despachante Dirceu</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<header>
+    <h1>Despachante Dirceu</h1>
+    <nav>
+        <button onclick="mostrarAba('home')">Início</button>
+        <button onclick="mostrarAba('imovel')">Serviços para Imóvel</button>
+        <button onclick="mostrarAba('veiculos')">Serviços para Veículos</button>
+    </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="aba ativa">
+    <div class="topo-banner">
+        <img src="banner home.png.png">
+    </div>
+
+    <div class="conteudo">
+        <h2>Atendimento rápido e profissional</h2>
+        <p>Especialistas em documentação veicular e documentação de imóveis.</p>
+
+        <a class="botao" href="https://wa.me/5551982837187" target="_blank">
+            Falar no WhatsApp
+        </a>
+
+        <div class="resumo">
+            <div class="resumo-card">🏠 Serviços para Imóvel</div>
+            <div class="resumo-card">🚗 Serviços para Veículos</div>
+        </div>
+
+        <h3>Localização</h3>
+        <iframe src="https://www.google.com/maps?q=Rua+Primeiro+de+Março+430+São+Leopoldo&output=embed"></iframe>
+    </div>
+</section>
+
+<!-- IMÓVEL -->
+<section id="imovel" class="aba">
+    <div class="topo-banner">
+        <img src="banner-imoveis.png.png">
+    </div>
+
+    <div class="conteudo">
+        <h2>Serviços para Imóvel</h2>
+
+       <div class="grid">
+    <div class="card">📄 Contratos de Aluguel</div>
+    <div class="card">🏡 Compra e Venda</div>
+    <div class="card">✍️ Procurações</div>
+    <div class="card">📝 Declarações</div>
+</div>
+
+        <a class="botao" href="https://wa.me/5551982837187" target="_blank">
+            Falar com Denise
+        </a>
+
+        <button class="chat-btn" onclick="abrirChat()">Tirar dúvidas</button>
+    </div>
+</section>
+
+<!-- VEÍCULOS -->
+<section id="veiculos" class="aba">
+    
+    <div class="topo-banner">
+        <img src="banner-veiculos.png.png">
+    </div>
+
+    <div class="conteudo">
+        <h2>Serviços para Veículos</h2>
+
+        <p>Atendimento completo para documentação veicular com rapidez e segurança.</p>
+
+        <div class="grid">
+            <div class="card">🚗 Transferência</div>
+            <div class="card">📃 Licenciamento</div>
+            <div class="card">🔧 Regularização</div>
+        </div>
+
+        <div class="botoes-coluna">
+            <a class="botao" href="#">Falar com Dirceu</a>
+            <button class="chat-btn" onclick="abrirChat()">Tirar dúvidas</button>
+        </div>
+    </div>
+
+</section>
+
+<!-- CHATBOT -->
+<div class="chatbox" id="chatbox">
+    <div class="chat-header">Atendimento Online</div>
+    <div class="chat-body" id="chat-body"></div>
+    <input type="text" id="msg" placeholder="Digite aqui...">
+    <button onclick="enviar()">Enviar</button>
+</div>
+
+<!-- WHATS -->
+<a href="https://wa.me/5551982837187" class="whatsapp-fixo" target="_blank">💬</a>
+
+<script>
+function mostrarAba(id) {
+    document.querySelectorAll('.aba').forEach(el => {
+        el.style.opacity = "0";
+        setTimeout(() => el.classList.remove('ativa'), 200);
+    });
+
+    setTimeout(() => {
+        const nova = document.getElementById(id);
+        nova.classList.add('ativa');
+        nova.style.opacity = "1";
+    }, 200);
+}
+
+function abrirChat() {
+    document.getElementById("chatbox").style.display = "block";
+
+    const chat = document.getElementById("chat-body");
+    chat.innerHTML = `
+        <p><b>Atendimento:</b> Olá! 😊</p>
+        <p>Você precisa de ajuda com:</p>
+        <p>1️⃣ Imóvel<br>2️⃣ Veículos</p>
+    `;
+}
+
+function enviar() {
+    let msg = document.getElementById("msg").value.toLowerCase();
+    let chat = document.getElementById("chat-body");
+
+    if(msg.trim() === "") return;
+
+    chat.innerHTML += "<p><b>Você:</b> " + msg + "</p>";
+
+    if (msg.includes("1") || msg.includes("imovel")) {
+        chat.innerHTML += `
+            <p><b>Atendimento:</b> Perfeito! 🏠</p>
+            <p>Qual serviço você precisa?</p>
+            <p>• Contrato de aluguel<br>
+               • Compra e venda<br>
+               • Procuração<br>
+               • Declaração</p>
+
+            <a href="https://wa.me/5551982837187?text=Olá,%20preciso%20de%20serviço%20para%20imóvel" target="_blank">
+                Falar com Denise
+            </a>
+        `;
+    }
+
+    else if (msg.includes("2") || msg.includes("veiculo")) {
+        chat.innerHTML += `
+            <p><b>Atendimento:</b> Ótimo! 🚗</p>
+            <p>Você precisa de:</p>
+            <p>• Transferência<br>
+               • Licenciamento<br>
+               • Regularização</p>
+
+            <a href="#" target="_blank">
+                Falar com Dirceu
+            </a>
+        `;
+    }
+
+    else if (msg.includes("transferencia")) {
+        chat.innerHTML += `
+            <p><b>Atendimento:</b> Transferência de veículo selecionada!</p>
+            <a href="#" target="_blank">Ir para WhatsApp</a>
+        `;
+    }
+
+    else {
+        chat.innerHTML += `
+            <p><b>Atendimento:</b> Pode me explicar melhor?</p>
+            <p>Digite 1 para imóvel ou 2 para veículos 🙂</p>
+        `;
+    }
+
+    document.getElementById("msg").value = "";
+    chat.scrollTop = chat.scrollHeight;
+}
+</script>
+
+</body>
+</html>

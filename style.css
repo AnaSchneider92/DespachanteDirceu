@@ -1,0 +1,219 @@
+/* RESET */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+
+    background: linear-gradient(135deg, #0a2540, #0f3d63, #1c6ea4);
+    background-attachment: fixed;
+}
+
+/* HEADER */
+header {
+    background: #0a2540;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+nav button {
+    margin: 5px;
+    padding: 10px 15px;
+    border: none;
+    background: #007bff;
+    color: white;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+/* ABAS */
+.aba {
+    display: none;
+    opacity: 0;
+    transition: 0.4s;
+}
+
+.ativa {
+    display: block;
+    opacity: 1;
+}
+
+/* BANNER */
+.topo-banner img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+/* CONTEÚDO CENTRAL */
+.conteudo {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 40px 20px;
+
+    background: #ffffff;
+    border-radius: 12px;
+
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+
+    text-align: center;
+}
+
+/* TITULOS */
+h2 {
+    font-size: 28px;
+    margin-bottom: 10px;
+}
+
+.conteudo p {
+    color: #555;
+    margin-bottom: 20px;
+}
+
+/* GRID DE CARDS */
+.grid {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* CARDS */
+.card {
+    background: white;
+    padding: 25px;
+    width: 240px;
+    border-radius: 12px;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 500;
+
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: all 0.3s ease;
+    cursor: pointer;
+
+    animation: aparecer 0.6s ease;
+}
+
+/* HOVER DOS CARDS */
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+/* ANIMAÇÃO */
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* BOTÃO WHATSAPP */
+.botao {
+    display: block;
+    margin: 25px auto;
+    padding: 12px 25px;
+    background: #25D366;
+    color: white;
+    border-radius: 8px;
+    text-decoration: none;
+    width: fit-content;
+    transition: 0.3s;
+}
+
+.botao:hover {
+    transform: scale(1.05);
+}
+
+/* BOTÕES EM COLUNA (DIRCEU + DÚVIDAS) */
+.botoes-coluna {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+/* BOTÃO DÚVIDAS */
+.chat-btn {
+    padding: 10px 20px;
+    border-radius: 6px;
+    border: none;
+    background: #0a2540;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.chat-btn:hover {
+    background: #133d66;
+}
+
+/* CHATBOX */
+.chatbox {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 280px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    overflow: hidden;
+}
+
+.chat-header {
+    background: #0a2540;
+    color: white;
+    padding: 12px;
+    font-weight: bold;
+}
+
+.chat-body {
+    padding: 10px;
+    max-height: 220px;
+    overflow-y: auto;
+    font-size: 14px;
+}
+
+.chatbox input {
+    width: 65%;
+    padding: 8px;
+    border: none;
+    border-top: 1px solid #ccc;
+}
+
+.chatbox button {
+    width: 35%;
+    border: none;
+    background: #007bff;
+    color: white;
+    cursor: pointer;
+}
+
+.chat-body a {
+    display: block;
+    margin-top: 10px;
+    padding: 10px;
+    background: #25D366;
+    color: white;
+    text-align: center;
+    border-radius: 6px;
+    text-decoration: none;
+}
+
+/* WHATSAPP FIXO */
+.whatsapp-fixo {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #25D366;
+    padding: 15px;
+    border-radius: 50%;
+    color: white;
+    font-size: 18px;
+}
